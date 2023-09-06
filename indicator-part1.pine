@@ -1,0 +1,15 @@
+// https://www.tradingview.com/pine-script-reference/v5/
+
+//@version=5
+indicator("test 1", overlay= true)
+
+ema20 = ta.ema(close, 20)
+plot(ema20, title="ema 20", color = color.blue, linewidth=1)
+
+ema200 = ta.ema(close, 200)
+plot(ema200, title="ema 200", color = color.yellow, linewidth=1)
+
+ema50 = ta.ema(close, 50)
+plot(ema50, title="ema 50", color = color.green, linewidth=1)
+
+
