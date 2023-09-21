@@ -1,5 +1,7 @@
 // https://www.tradingview.com/pine-script-reference/v5/
 
+// VISUALIZAR 3 MEDIALES MOVILES
+
 //@version=5
 indicator("test 1", overlay= true)
 

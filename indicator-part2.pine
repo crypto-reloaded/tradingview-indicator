@@ -1,0 +1,29 @@
+// https://www.tradingview.com/pine-script-reference/v5/
+
+// VISUALIZAR Y CONFIGURAR 3 MEDIALES MOVILES
+// AGREGAR DIFERENTES COLORES A LA MEDIA MOVIL SEGUN EL
+// VALOR DEL RSI
+
+//@version=5
+indicator("test 1", overlay= true)
+
+// Media movil 1
+mv1_type = input.string("SMA", "MV-1 Tipo", options=["SMA", "EMA"])
+mv1_value = input.int(14, "MV-1 Valor")
+
+mv1 = (mv1_type == "EMA") ? ta.ema(close, mv1_value) : ta.sma(close, mv1_value)
+
+// RSI en Media movil 1
+rsiValue = ta.rsi(close, 14)
+colorM1 = (rsiValue > 70 or rsiValue < 30) ? color.lime : color.blue
+
+plot(mv1, title="MV 1", color = colorM1, linewidth=3)
+
+// Media movil 2
+mv2_type = input.string("SMA", "MV-2 Tipo", options=["SMA", "EMA"])
+mv2_value = input.int(50, "MV-2 Valor")
+
+mv2 = (mv2_type == "EMA") ? ta.ema(close, mv2_value) : ta.sma(close, mv2_value)
+
+plot(mv2, title="MV 2", color = color.green, linewidth=1)
+
